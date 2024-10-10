@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag.Equals("Door1")))
+        if ((collision.gameObject.tag.Equals("Door1") && hasKey == true))
         {
             Debug.Log("change scene");
             SceneManager.LoadScene(1);

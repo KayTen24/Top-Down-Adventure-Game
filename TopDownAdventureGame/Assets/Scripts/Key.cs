@@ -21,7 +21,7 @@ public class Key : MonoBehaviour
         if(collision.gameObject.tag.Equals("Player"))
         {
             Debug.Log("obtained key");
-          
+            Destroy(this.gameObject);
         }
 
     }
