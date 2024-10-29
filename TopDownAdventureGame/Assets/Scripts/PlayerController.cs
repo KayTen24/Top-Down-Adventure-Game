@@ -31,24 +31,28 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey("a"))
         {
             newPosition.x -= speed;
+            sr.sprite = leftSprite;
         }
 
         //go right
         if (Input.GetKey("d"))
         {
             newPosition.x += speed;
+            sr.sprite = rightSprite;
         }
 
         //go up
         if (Input.GetKey("w"))
         {
             newPosition.y += speed;
+            sr.sprite = upSprite;
         }
 
         //go down
         if (Input.GetKey("s"))
         {
             newPosition.y -= speed;
+            sr.sprite = frontSprite;
         }
 
         transform.position = newPosition;
