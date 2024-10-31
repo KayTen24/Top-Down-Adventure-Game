@@ -15,11 +15,25 @@ public class PlayerController : MonoBehaviour
     public Sprite rightSprite;
     public Sprite frontSprite;
 
+    //audio variables
+    public AudioSource soundEffects;
+    public AudioClip[] sounds;
+
     //public Rigidbody2D rb; 
+
+    public static PlayerController instance;
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>(); 
+        soundEffects = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
+        if (instance != null) //if another instance of the player is in the scene
+        {
+            Destroy(gameObject); //then destroy it
+        }
+
+        instance = this; //reassign the instance to the current player
+        GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -60,16 +74,24 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag.Equals("Door1") && hasKey == true))
+        if ((collision.gameObject.tag.Equals("Door1")))
         {
             Debug.Log("change scene");
+            soundEffects.PlayOneShot(soundEffects[0], .7f); //play door sound effect
             SceneManager.LoadScene(1);
+
+        }
+
+        if ((collision.gameObject.tag.Equals("Door2")))
+        {
+            Debug.Log("change scene");
+            SceneManager.LoadScene(0);
 
         }
 
         if ((collision.gameObject.tag.Equals("Key")))
         {
-            Debug.Log("obtained key");
+            Debug.Log("obtained knife");
             hasKey= true;//player has the key now
         }
     }
