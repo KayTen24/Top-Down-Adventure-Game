@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         if ((collision.gameObject.tag.Equals("Door1")))
         {
             Debug.Log("change scene");
-            soundEffects.PlayOneShot(soundEffects[0], .7f); //play door sound effect
+            soundEffects.PlayOneShot(sounds[0], .7f); //play door sound effect
             SceneManager.LoadScene(1);
 
         }
