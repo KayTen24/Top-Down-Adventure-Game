@@ -7,6 +7,8 @@ TagManager:
   - Door1
   - Key
   - Door2
+  - Plate
+  - Egg
   layers:
   - Default
   - TransparentFX

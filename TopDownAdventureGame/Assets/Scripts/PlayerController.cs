@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private SpriteRenderer sr;
     public bool hasKey = false; 
+    public bool hasEggs = false;
+    public bool hasPeppers = false;
+    public bool hasOnions = false;
 
     //sprite variables
     public Sprite upSprite;
@@ -85,6 +88,7 @@ public class PlayerController : MonoBehaviour
         if ((collision.gameObject.tag.Equals("Door2")))
         {
             Debug.Log("change scene");
+            soundEffects.PlayOneShot(sounds[0], .7f); //play door sound effect
             SceneManager.LoadScene(0);
 
         }
@@ -92,7 +96,21 @@ public class PlayerController : MonoBehaviour
         if ((collision.gameObject.tag.Equals("Key")))
         {
             Debug.Log("obtained knife");
-            hasKey= true;//player has the key now
+            soundEffects.PlayOneShot(sounds[1], .7f); //play knife sound effect
+            hasKey = true;//player has the key now
+        }
+
+        if ((collision.gameObject.tag.Equals("Egg")))
+        {
+            Debug.Log("obtained egg");
+            soundEffects.PlayOneShot(sounds[2], .7f); //play knife sound effect
+            hasEggs = true;//player has the egg now
+        }
+
+        if (collision.gameObject.tag.Equals("Plate") && hasKey && hasEggs && hasOnions && hasPeppers== true)
+        {
+            Debug.Log("Omelet Made");
+            //End the Game
         }
     }
 }
