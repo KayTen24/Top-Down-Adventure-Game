@@ -9,6 +9,10 @@ TagManager:
   - Door2
   - Plate
   - Egg
+  - Onion
+  - Pepper
+  - Cheese
+  - Oven
   layers:
   - Default
   - TransparentFX

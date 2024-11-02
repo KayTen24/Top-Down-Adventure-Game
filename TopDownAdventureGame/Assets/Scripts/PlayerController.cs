@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool hasEggs = false;
     public bool hasPeppers = false;
     public bool hasOnions = false;
+    public bool hasCheese = false; 
 
     //sprite variables
     public Sprite upSprite;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("change scene");
             soundEffects.PlayOneShot(sounds[0], .7f); //play door sound effect
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
 
         }
 
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("change scene");
             soundEffects.PlayOneShot(sounds[0], .7f); //play door sound effect
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
 
         }
 
@@ -103,13 +104,36 @@ public class PlayerController : MonoBehaviour
         if ((collision.gameObject.tag.Equals("Egg")))
         {
             Debug.Log("obtained egg");
-            soundEffects.PlayOneShot(sounds[2], .7f); //play knife sound effect
+            soundEffects.PlayOneShot(sounds[2], .7f); //play item collection sound effect
             hasEggs = true;//player has the egg now
         }
 
-        if (collision.gameObject.tag.Equals("Plate") && hasKey && hasEggs && hasOnions && hasPeppers== true)
+        if ((collision.gameObject.tag.Equals("Pepper")))
         {
-            Debug.Log("Omelet Made");
+            Debug.Log("obtained pepper");
+            soundEffects.PlayOneShot(sounds[2], .7f); //play item collection sound effect
+            hasPeppers = true;//player has the pepper now
+        }
+
+        if ((collision.gameObject.tag.Equals("Onion")))
+        {
+            Debug.Log("obtained onion");
+            soundEffects.PlayOneShot(sounds[2], .7f); //play item collection sound effect
+            hasOnions = true;//player has the onion now
+        }
+
+        if ((collision.gameObject.tag.Equals("Cheese")))
+        {
+            Debug.Log("obtained cheese");
+            soundEffects.PlayOneShot(sounds[2], .7f); //play item collection sound effect
+            hasCheese = true;//player has the cheese now
+        }
+
+        if (collision.gameObject.tag.Equals("Oven") && hasKey && hasEggs && hasOnions && hasPeppers && hasCheese == true)
+        {
+            Debug.Log("Game Ended");
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(3);
             //End the Game
         }
     }
