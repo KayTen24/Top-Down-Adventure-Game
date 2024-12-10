@@ -13,6 +13,7 @@ TagManager:
   - Pepper
   - Cheese
   - Oven
+  - Cutting Board
   layers:
   - Default
   - TransparentFX
