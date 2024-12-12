@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameEnd.unity
     guid: 57d9182e26151714da8efa7f2a082dda
+  - enabled: 1
+    path: Assets/Scenes/ChoppingPeppers.unity
+    guid: 48dcde37b1bdfb24ca6b6f2bd35b303f
   m_configObjects: {}

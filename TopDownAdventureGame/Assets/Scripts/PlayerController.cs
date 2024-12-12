@@ -129,7 +129,14 @@ public class PlayerController : MonoBehaviour
             hasCheese = true;//player has the cheese now
         }
 
-        if (collision.gameObject.tag.Equals("Oven") && hasKey && hasEggs && hasOnions && hasPeppers && hasCheese == true)
+        if (collision.gameObject.tag.Equals("Cutting Board") && hasKey && hasEggs && hasOnions && hasPeppers && hasCheese == true)
+        {
+            Debug.Log("Chopping Minigame Activated");
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(4);
+        }
+
+            if (collision.gameObject.tag.Equals("Plate") && hasKey && hasEggs && hasOnions && hasPeppers && hasCheese == true)
         {
             Debug.Log("Game Ended");
             Destroy(this.gameObject);
