@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChoppingMechanic : MonoBehaviour
 {
     private Vector3 target;
-    public float speed = 0.5f; 
-    
+    public float speed = 0.5f;
+
+    public AudioSource soundEffects;
+    public AudioClip[] sounds;
+
+    public static int totalObjects = 6; 
+    public static int clickedObjects = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        soundEffects = GetComponent<AudioSource>();
         target = transform.position;
     }
 
@@ -27,8 +35,19 @@ public class ChoppingMechanic : MonoBehaviour
 
     void OnMouseDown()
     {
-        target.x += 1f;
+        transform.position = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f));
+        soundEffects.PlayOneShot(sounds[0], .7f);
         Debug.Log("clicked the cucumber!");
-        transform.position = target;
+
+        if (clickedObjects == totalObjects)
+            return;
+
+        clickedObjects++; 
+        Debug.Log(gameObject.name + " has been clicked!");
+
+        if (clickedObjects == totalObjects)
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 }

@@ -136,9 +136,10 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(4);
         }
 
-            if (collision.gameObject.tag.Equals("Plate") && hasKey && hasEggs && hasOnions && hasPeppers && hasCheese == true)
+            if (collision.gameObject.tag.Equals("Oven") && hasKey && hasEggs && hasOnions && hasPeppers && hasCheese == true)
         {
             Debug.Log("Game Ended");
+            soundEffects.PlayOneShot(sounds[3], .7f);
             Destroy(this.gameObject);
             SceneManager.LoadScene(3);
             //End the Game

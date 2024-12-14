@@ -842,7 +842,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.1922927
+  orthographic size: 4.9481115
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -866,7 +866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -10}
+  m_LocalPosition: {x: 0.06, y: -0.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2191,7 +2191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334214141624779034, guid: 0623921ebdc86a846afd647d52b90b83, type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4334214141624779034, guid: 0623921ebdc86a846afd647d52b90b83, type: 3}
       propertyPath: sounds.Array.data[0]
@@ -2205,6 +2205,10 @@ PrefabInstance:
       propertyPath: sounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 6aa73c069fb270142927c7e3e3a81671, type: 3}
+    - target: {fileID: 4334214141624779034, guid: 0623921ebdc86a846afd647d52b90b83, type: 3}
+      propertyPath: sounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b5eee3b4a0fbe454785b594862ce5a34, type: 3}
     - target: {fileID: 4334214141624779035, guid: 0623921ebdc86a846afd647d52b90b83, type: 3}
       propertyPath: m_Name
       value: Player
